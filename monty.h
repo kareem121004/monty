@@ -1,6 +1,7 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
@@ -41,5 +42,12 @@ typedef struct instruction_s
 } instruction_t;
 
 
-extern stack_t *head;
+extern stack_t *head = NULL;
+typedef void (*opcode_func)(stack_t **, unsigned int);
+
+void open_file(char *filename);
+void readfile(FILE *file);
+int parse(char *line, int line_number, int format);
+void execute(char *opcode, char *value, int line_num, int format);
+void call(op_func func, char *op, char *val, int ln, int format);
 #endif
