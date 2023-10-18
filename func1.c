@@ -1,12 +1,12 @@
 #include "monty.h"
 
 /**
- * push_stack - Adds a node to the stack.
+ * add_to_stack - Adds a node to the stack.
  * @new_node - Pointer to the new node.
  * @ln: Interger
 */
 
-void push_stack(stack_t **new_node, __attribute__((unused))unsigned int ln)
+void add_to_stack(stack_t **new_node, __attribute__((unused))unsigned int ln)
 {
 	stack_t *temp;
 
