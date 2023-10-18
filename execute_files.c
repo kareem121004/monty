@@ -99,7 +99,6 @@ void find_func(char *opcode, char *value, int ln, int format)
 		{"pchar", print_char},
 		{"pstr", print_str},
 		{"rotl", rotl},
-		{"rotr", rotr},
 		{NULL, NULL}
 	};
 
