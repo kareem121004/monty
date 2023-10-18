@@ -74,7 +74,7 @@ void call(opcode_func func, char *op, char *val, int ln, int format)
 		if (format == 0)
 			func(&node, ln);
 		if (format == 1)
-			add_to_queue(&node, ln);
+			add_queue(&node, ln);
 	}
 	else
 		func(&head, ln);
