@@ -67,7 +67,7 @@ stack_t *create_node(int n)
  * @ln: line number
 */
 
-void add_queue(stack_t **new_node, __attribute__((unused))unsigned int ln)
+void add_to_queue(stack_t **new_node, __attribute__((unused))unsigned int ln)
 {
 	stack_t *temp;
 

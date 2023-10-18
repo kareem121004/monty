@@ -45,17 +45,17 @@ typedef struct instruction_s
 extern stack_t *head;
 typedef void (*opcode_func)(stack_t **, unsigned int);
 
-void open_file(char *filename);
-void readfile(FILE *file);
-int parse(char *line, int line_number, int format);
-void execute(char *, char *, int, int);
-void call(opcode_func, char *, char *, int, int);
+void open_file(char *file_name);
+void read_file(FILE *);
+int parse_line(char *buffer, int line_number, int format);
+void find_func(char *, char *, int, int);
+void call_fun(op_func, char *, char *, int, int);
 void push_stack(stack_t **,unsigned int);
 void print_stack(stack_t **, unsigned int);
 void pop_top(stack_t **, unsigned int);
 void nop(stack_t **, unsigned int);
 void print_top(stack_t **, unsigned int);
-void add_queue(stack_t **,unsigned int);
+void add_to_queue(stack_t **, unsigned int);
 stack_t *create_node(int n);
 void free_stack(void);
 void err(int error_code, ...);

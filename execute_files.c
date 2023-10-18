@@ -2,54 +2,61 @@
 
 /**
  * open_file - opens a file
- * @filename: the file name
-*/
+ * @file_name: the file namepath
+ * Return: void
+ */
 
-void open_file(char *filename)
+void open_file(char *file_name)
 {
-	FILE *file = fopen(filename, "r");
+	FILE *fd = fopen(file_name, "r");
 
-	if (filename == NULL || file == NULL)
-		err(2, filename);
+	if (file_name == NULL || fd == NULL)
+		err(2, file_name);
 
-	readfile(file);
-	fclose(file);
+	read_file(fd);
+	fclose(fd);
 }
 
-/**
- * readfile - reads a file
- * @file: pointer to file descriptor
-*/
 
-void readfile(FILE *file)
+/**
+ * read_file - reads a file
+ * @fd: pointer to file descriptor
+ * Return: void
+ */
+
+void read_file(FILE *fd)
 {
-	char *line = NULL;
-	size_t len = 0;
 	int line_number, format = 0;
+	char *buffer = NULL;
+	size_t len = 0;
 
-	for (line_number = 1; getline(&line, &len, file) != -1; line_number++)
-		format = parse(line, line_number, format);
-	free(line);
+	for (line_number = 1; getline(&buffer, &len, fd) != -1; line_number++)
+	{
+		format = parse_line(buffer, line_number, format);
+	}
+	free(buffer);
 }
 
+
 /**
- * parse - Separates each line into tokens
- * @line: line from the file
+ * parse_line - Separates each line into tokens to determine
+ * which function to call
+ * @buffer: line from the file
  * @line_number: line number
  * @format:  storage format. If 0 Nodes will be entered as a stack.
  * if 1 nodes will be entered as a queue.
  * Return: Returns 0 if the opcode is stack. 1 if queue.
-*/
+ */
 
-int parse(char *line, int line_number, int format)
+int parse_line(char *buffer, int line_number, int format)
 {
 	char *opcode, *value;
 	const char *delim = "\n ";
 
-	if (line == NULL)
+	if (buffer == NULL)
 		err(4);
 
-	opcode = strtok(line, delim);
+	opcode = strtok(buffer, delim);
 	if (opcode == NULL)
 		return (format);
 	value = strtok(NULL, delim);
@@ -59,6 +66,6 @@ int parse(char *line, int line_number, int format)
 	if (strcmp(opcode, "queue") == 0)
 		return (1);
 
-	execute(opcode, value, line_number, format);
+	find_func(opcode, value, line_number, format);
 	return (format);
 }
