@@ -12,7 +12,7 @@ void open_file(char *filename)
 	if (filename == NULL || file == NULL)
 		fprintf(stderr, "Error: Can't open file %s\n", filename);
 
-	read_file(file);
+	readfile(file);
 	fclose(file);
 }
 
@@ -28,7 +28,7 @@ void readfile(FILE *file)
 	int line_number, format = 0;
 
 	for (line_number = 1; getline(&line, &len, file) != -1; line_number++)
-		format = parse_line(line, line_number, format);
+		format = parse(line, line_number, format);
 	free(line);
 }
 

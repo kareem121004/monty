@@ -1,4 +1,5 @@
 #include "monty.h"
+stack_t *head = NULL;
 
 /**
  * main - entry point
@@ -83,7 +84,7 @@ void add_queue(stack_t **new_node, __attribute__((unused))unsigned int ln)
 	temp = head;
 
 	while (temp->next != NULL)
-		tmp = tmp->next;
+		temp = temp->next;
 	temp->next = *new_node;
 	(*new_node)->prev = temp;
 }

@@ -42,12 +42,20 @@ typedef struct instruction_s
 } instruction_t;
 
 
-extern stack_t *head = NULL;
+extern stack_t *head;
 typedef void (*opcode_func)(stack_t **, unsigned int);
 
 void open_file(char *filename);
 void readfile(FILE *file);
 int parse(char *line, int line_number, int format);
 void execute(char *opcode, char *value, int line_num, int format);
-void call(op_func func, char *op, char *val, int ln, int format);
+void call(opcode_func func, char *op, char *val, int ln, int format);
+void push_stack(stack_t **new_node, __attribute__((unused))unsigned int ln);
+void print_stack(stack_t **stack, unsigned int line_number);
+void pop_top(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
+void print_top(stack_t **stack, unsigned int line_number);
+void add_queue(stack_t **new_node, __attribute__((unused))unsigned int ln);
+stack_t *create_node(int n);
+void free_stack(void);
 #endif

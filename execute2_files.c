@@ -21,7 +21,6 @@ void execute(char *opcode, char *value, int line_num, int format)
 		{"pint", print_top},
 		{"pop", pop_top},
 		{"nop", nop},
-		{"swap", swap_nodes},
 		{NULL, NULL}
 	};
 
