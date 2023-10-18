@@ -50,10 +50,8 @@ int parse(char *line, int line_number, int format)
 		err(4);
 
 	opcode = strtok(line, delim);
-
 	if (opcode == NULL)
 		return (format);
-
 	value = strtok(NULL, delim);
 
 	if (strcmp(opcode, "stack") == 0)
