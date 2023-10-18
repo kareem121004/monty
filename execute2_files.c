@@ -7,6 +7,7 @@
  * if 1 nodes will be entered as a queue.
  * Return: void
  */
+
 void find_func(char *opcode, char *value, int ln, int format)
 {
 	int i;
@@ -18,6 +19,16 @@ void find_func(char *opcode, char *value, int ln, int format)
 		{"pint", print_top},
 		{"pop", pop_top},
 		{"nop", nop},
+		{"swap", swap_nodes},
+		{"add", add_nodes},
+		{"sub", sub_nodes},
+		{"div", div_nodes},
+		{"mul", mul_nodes},
+		{"mod", mod_nodes},
+		{"pchar", print_char},
+		{"pstr", print_str},
+		{"rotl", rotl},
+		{"rotr", rotr},
 		{NULL, NULL}
 	};
 
@@ -35,7 +46,6 @@ void find_func(char *opcode, char *value, int ln, int format)
 	if (flag == 1)
 		err(3, ln, opcode);
 }
-
 
 /**
  * call_fun - Calls the required function.
