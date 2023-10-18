@@ -25,18 +25,18 @@ void execute(char *opcode, char *value, int line_num, int format)
 	};
 
 	if (opcode[0] == '#')
-		return;
+                return;
+        for (flag = 1, i = 0; func_list[i].opcode != NULL; i++)
+        {
+                if (strcmp(opcode, func_list[i].opcode) == 0)
+                {
+                        call(func_list[i].f, opcode, value, line_num, format);
+                        flag = 0;
+                }
+        }
 
-	for (flag = 1, i = 0; func_list[i].opcode != NULL; i++)
-	{
-		if (strcmp(opcode, func_list[i].opcode) == 0)
-		{
-			call(func_list[i].f, opcode, value, ln, format);
-			flag = 0;
-		}
-	}
-	if (flag == 1)
-		err(3, line_num, opcode);
+        if (flag == 1)
+                err(3, line_num, opcode);
 }
 
 /**
