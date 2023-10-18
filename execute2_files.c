@@ -36,7 +36,7 @@ void execute(char *opcode, char *value, int line_num, int format)
 	}
 
 	if (flag == 1)
-		fprintf(stderr, "L%d: unknown instruction %s\n", line_num, opcode);
+		err(3, line_num, opcode);
 }
 
 /**
@@ -66,12 +66,11 @@ void call(opcode_func func, char *op, char *val, int ln, int format)
 		}
 
 		if (val == NULL)
-			fprintf(stderr, "L%d: usage: push integer\n", ln);
-
+			err(5, ln);
 		for (i = 0; val[i] != '\0'; i++)
 		{
 			if (isdigit(val[i]) == 0)
-				fprintf(stderr, "L%d: usage: push integer\n", ln);
+				err(5, ln);
 		}
 		node = create_node(atoi(val) * flag);
 		if (format == 0)

@@ -58,4 +58,6 @@ void print_top(stack_t **, unsigned int);
 void add_queue(stack_t **,unsigned int);
 stack_t *create_node(int n);
 void free_stack(void);
+void err(int error_code, ...);
+void more_err(int error_code, ...);
 #endif

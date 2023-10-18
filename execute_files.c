@@ -10,7 +10,7 @@ void open_file(char *filename)
 	FILE *file = fopen(filename, "r");
 
 	if (filename == NULL || file == NULL)
-		fprintf(stderr, "Error: Can't open file %s\n", filename);
+		err(2, filename);
 
 	readfile(file);
 	fclose(file);
@@ -47,7 +47,7 @@ int parse(char *line, int line_number, int format)
 	const char *delim = "\n ";
 
 	if (line == NULL)
-		fprintf(stderr, "Error: malloc failed\n");
+		err(4);
 
 	opcode = strtok(line, delim);
 
