@@ -49,7 +49,7 @@ void execute(char *opcode, char *value, int line_num, int format)
  * if 1 nodes will be entered as a queue.
 */
 
-void call(op_func func, char *op, char *val, int ln, int format)
+void call(opcode_func func, char *op, char *val, int ln, int format)
 {
 	stack_t *node;
 	int flag;
