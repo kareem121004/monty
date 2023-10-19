@@ -45,11 +45,11 @@ void print_stack(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pop - pop node.
+ * pop_node - pop node.
  * @stack: Pointer
  * @line_number: Interger representing the line number of of the opcode.
  */
-void pop(stack_t **stack, unsigned int line_number)
+void pop_node(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
 
