@@ -83,13 +83,13 @@ void find(char *opcode, char *value, int ln, int format)
 		{"push", push_stack},
 		{"pall", print_stack},
 		{"pint", print_top},
-		{"pop", pop},
+		{"pop", pop_node},
 		{"nop", nop},
-		{"swap", swap},
-		{"add", add},
-		{"sub", sub},
-		{"div", div},
-		{"mul", mul},
+		{"swap", swap_node},
+		{"add", add_node},
+		{"sub", sub_node},
+		{"div", div_node},
+		{"mul", mul_node},
 		{NULL, NULL}
 	};
 
