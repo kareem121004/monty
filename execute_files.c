@@ -80,7 +80,7 @@ void find(char *opcode, char *value, int ln, int format)
 	int flag;
 
 	instruction_t func_list[] = {
-		{"push", add_to_stack},
+		{"push", push_stack},
 		{"pall", print_stack},
 		{"pint", print_top},
 		{"pop", pop_top},
