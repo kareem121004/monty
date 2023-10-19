@@ -13,11 +13,11 @@ void nop(stack_t **stack, unsigned int line_number)
 
 
 /**
- * swap - Swaps the top two elements of the stack.
+ * swap_node - Swaps the top two elements of the stack.
  * @stack: Pointer to a pointer pointing to top node of the stack.
  * @line_number: Interger representing the line number of of the opcode.
  */
-void swap(stack_t **stack, unsigned int line_number)
+void swap_node(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
 
@@ -34,11 +34,11 @@ void swap(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * add - Adds the top two elements of the stack.
+ * add_node - Adds the top two elements of the stack.
  * @stack: Pointer to a pointer pointing to top node of the stack.
  * @line_number: Interger representing the line number of of the opcode.
  */
-void add_(stack_t **stack, unsigned int line_number)
+void add_node(stack_t **stack, unsigned int line_number)
 {
 	int sum;
 
@@ -54,11 +54,11 @@ void add_(stack_t **stack, unsigned int line_number)
 
 
 /**
- * sub - Adds the top two elements of the stack.
+ * sub_node - Adds the top two elements of the stack.
  * @stack: Pointer to a pointer pointing to top node of the stack.
  * @line_number: Interger representing the line number of of the opcode.
  */
-void sub(stack_t **stack, unsigned int line_number)
+void sub_node(stack_t **stack, unsigned int line_number)
 {
 	int sum;
 
@@ -76,11 +76,11 @@ void sub(stack_t **stack, unsigned int line_number)
 
 
 /**
- * div - Adds the top two elements of the stack.
+ * div_node - Adds the top two elements of the stack.
  * @stack: Pointer to a pointer pointing to top node of the stack.
  * @line_number: Interger representing the line number of of the opcode.
  */
-void div(stack_t **stack, unsigned int line_number)
+void div_node(stack_t **stack, unsigned int line_number)
 {
 	int sum;
 
