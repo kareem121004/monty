@@ -30,22 +30,21 @@ void read_file(FILE *file)
 
 	for (line_number = 1; getline(&line, &len, file) != -1; line_number++)
 	{
-		format = parse_line(line, line_number, format);
+		format = parseline(line, line_number, format);
 	}
 	free(line);
 }
 
 
 /**
- * parse_line - Separates each line into tokens to determine
- * which function to call
+ * parseline - Separates each line into tokens
  * @line: line from the file
  * @line_number: line number
  * @format:  storage format
  * Return: Returns 0 if the opcode is stack. 1 if queue.
  */
 
-int parse_line(char *line, int line_number, int format)
+int parseline(char *line, int line_number, int format)
 {
 	char *opcode, *value;
 	const char *delim = "\n ";
