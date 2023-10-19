@@ -62,20 +62,19 @@ int parseline(char *line, int line_number, int format)
 	if (strcmp(opcode, "queue") == 0)
 		return (1);
 
-	find_func(opcode, value, line_number, format);
+	find(opcode, value, line_number, format);
 	return (format);
 }
 
 /**
- * find_func - find the appropriate function for the opcode
+ * find - find the appropriate function
  * @opcode: opcode
  * @value: argument of opcode
  * @format:  storage format. If 0 Nodes will be entered as a stack.
  * @ln: line number
- * if 1 nodes will be entered as a queue.
- * Return: void
+ * if 1 nodes will be entered as a queue
  */
-void find_func(char *opcode, char *value, int ln, int format)
+void find(char *opcode, char *value, int ln, int format)
 {
 	int i;
 	int flag;
