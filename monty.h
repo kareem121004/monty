@@ -45,7 +45,6 @@ typedef void (*op_func)(stack_t **, unsigned int);
 void open_file(char *filename);
 int parseline(char *line, int line_number, int format);
 void read_file(FILE *);
-int len_chars(FILE *);
 void find(char *, char *, int, int);
 stack_t *create_node(int n);
 void free_nodes(void);
