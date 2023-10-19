@@ -10,7 +10,7 @@ void open_file(char *filename)
 	FILE *file = fopen(filename, "r");
 
 	if (filename == NULL || file == NULL)
-		err(2, filename);
+		error1(2, filename);
 
 	read_file(file);
 	fclose(file);
@@ -50,7 +50,7 @@ int parseline(char *line, int line_number, int format)
 	const char *delim = "\n ";
 
 	if (line == NULL)
-		err(4);
+		error1(4);
 
 	opcode = strtok(line, delim);
 	if (opcode == NULL)
@@ -105,7 +105,7 @@ void find(char *opcode, char *value, int ln, int format)
 		}
 	}
 	if (flag == 1)
-		err(3, ln, opcode);
+		error1(3, ln, opcode);
 }
 
 
@@ -133,11 +133,11 @@ void call(op_func func, char *op, char *val, int ln, int format)
 			flag = -1;
 		}
 		if (val == NULL)
-			err(5, ln);
+			error1(5, ln);
 		for (i = 0; val[i] != '\0'; i++)
 		{
 			if (isdigit(val[i]) == 0)
-				err(5, ln);
+				error1(5, ln);
 		}
 		node = create_node(atoi(val) * flag);
 		if (format == 0)
