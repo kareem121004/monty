@@ -3,7 +3,6 @@
 /**
  * open_file - opens a file
  * @filename: the file name
- * Return: void
  */
 
 void open_file(char *filename)
@@ -20,7 +19,7 @@ void open_file(char *filename)
 
 /**
  * read_file - reads a file
- * @fd: pointer to file descriptor
+ * @file: pointer to file descriptor
  * Return: void
  */
 
