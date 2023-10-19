@@ -53,7 +53,7 @@ void push_stack(stack_t **, unsigned int);
 void add_to_queue(stack_t **, unsigned int);
 void call(op_func, char *, char *, int, int);
 void print_top(stack_t **, unsigned int);
-void pop_top(stack_t **, unsigned int);
+void pop(stack_t **, unsigned int);
 void nop(stack_t **, unsigned int);
 void swap_nodes(stack_t **, unsigned int);
 void add_nodes(stack_t **, unsigned int);
