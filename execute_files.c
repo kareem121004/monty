@@ -100,7 +100,7 @@ void find(char *opcode, char *value, int ln, int format)
 	{
 		if (strcmp(opcode, func_list[i].opcode) == 0)
 		{
-			call_fun(func_list[i].f, opcode, value, ln, format);
+			call(func_list[i].f, opcode, value, ln, format);
 			flag = 0;
 		}
 	}
@@ -110,15 +110,15 @@ void find(char *opcode, char *value, int ln, int format)
 
 
 /**
- * call_fun - Calls the required function.
- * @func: Pointer to the function that is about to be called.
+ * call - Calls the required function.
+ * @func: Pointer to the function
  * @op: string representing the opcode.
  * @val: string representing a numeric value.
  * @ln: line numeber for the instruction.
  * @format: Format specifier. If 0 Nodes will be entered as a stack.
  * if 1 nodes will be entered as a queue.
  */
-void call_fun(op_func func, char *op, char *val, int ln, int format)
+void call(op_func func, char *op, char *val, int ln, int format)
 {
 	stack_t *node;
 	int flag;
