@@ -2,19 +2,18 @@
 
 /**
  * open_file - opens a file
- * @file_name: the file namepath
- * Return: void
+ * @filename: the file name
  */
 
-void open_file(char *file_name)
+void open_file(char *filename)
 {
-	FILE *fd = fopen(file_name, "r");
+	FILE *file = fopen(filename, "r");
 
-	if (file_name == NULL || fd == NULL)
-		err(2, file_name);
+	if (filename == NULL || file == NULL)
+		err(2, filename);
 
-	read_file(fd);
-	fclose(fd);
+	read_file(file);
+	fclose(file);
 }
 
 
@@ -24,13 +23,13 @@ void open_file(char *file_name)
  * Return: void
  */
 
-void read_file(FILE *fd)
+void read_file(FILE *file)
 {
 	int line_number, format = 0;
 	char *buffer = NULL;
 	size_t len = 0;
 
-	for (line_number = 1; getline(&buffer, &len, fd) != -1; line_number++)
+	for (line_number = 1; getline(&buffer, &len, file) != -1; line_number++)
 	{
 		format = parse_line(buffer, line_number, format);
 	}
