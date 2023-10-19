@@ -25,7 +25,7 @@ void push_stack(stack_t **new_node, __attribute__((unused))unsigned int ln)
 
 
 /**
- * print_stack - Adds a node to the stack.
+ * print_stack - prints a node.
  * @stack: Pointer
  * @line_number: line number
  */
@@ -45,11 +45,11 @@ void print_stack(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pop_top - Adds a node to the stack.
+ * pop - pop node.
  * @stack: Pointer
  * @line_number: Interger representing the line number of of the opcode.
  */
-void pop_top(stack_t **stack, unsigned int line_number)
+void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
 
